@@ -7,7 +7,7 @@ COURSES = []
 @app.route("/")
 def homepage():
     """View function for Home Page."""
-    return render_template("home.html")
+    return render_template("coursePage.html", courseName = "Ece216")
 
 @app.route("/signup", methods=["POST", "GET"])
 def signup():
