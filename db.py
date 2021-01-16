@@ -6,8 +6,6 @@ class Assignment:
         self.classRating = 0
         self.numDone = 0
 
-    
-
 class Student: 
     def __init__(self):
         self.courses = []
