@@ -17,7 +17,7 @@ body {
     color: black
 }
 
-.course-title {
+.page-title {
     margin-top: 20px;
 }
 
@@ -61,6 +61,12 @@ body {
 .main {
     margin: 30px 30px 30px 220px; /* Same as the width of the sidebar */
     padding: 0px 10px;
+}
+
+/* Add course page */
+.form-label {
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 /* Star rating */
