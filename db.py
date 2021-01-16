@@ -1,15 +1,17 @@
 class Assignment:
-    def __init__(self, id, name, dueDate, worth):
+    def __init__(self, id, name, dueDate):
         self.id = id
         self.name = name
         self.dueDate = dueDate
         self.classRating = 0
         self.numDone = 0
 
+    
+
 class Student: 
     def __init__(self):
         self.courses = []
-        
+ 
 class StudentCourseData:
   def __init__(self):
     self.labsCompleted = []
@@ -32,3 +34,20 @@ class Course:
     self.numPSets = numProb
     self.labs = []
     self.problemSets = []
+
+  def addStudent():
+    numStudents = numStudents + 1 #every time a new student adds the course to their page
+
+  def createLabsList():
+    i = 0
+    while i < numLab:
+      labs.append(Assignment(i, "Lab " + str(i), dueDate))  # how does dueDate get here though
+
+  def createPSetsList():
+    i = 0
+    while i < numProb:
+      problemSets.append(Assignment(i, "Problem Set " + str(i), dueDate))
+
+  
+    
+  
