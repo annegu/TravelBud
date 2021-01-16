@@ -1,10 +1,13 @@
 class Assignment:
-    def __init__(self, id, name, dueDate):
+    def __init__(self, id, name):
         self.id = id
         self.name = name
-        self.dueDate = dueDate
+        # self.dueDate = dueDate
         self.classRating = 0
         self.numDone = 0
+
+    def printAssignment(self):
+        print(self.id, self.name)
 
 class Student: 
     def __init__(self):
@@ -34,17 +37,21 @@ class Course:
     self.problemSets = []
 
   def addStudent():
-    numStudents = numStudents + 1 #every time a new student adds the course to their page
+    numStudents = numStudents + 1 # every time a new student adds the course to their page
 
-  def createLabsList():
+  def createLabsList(self):
     i = 0
-    while i < numLab:
-      labs.append(Assignment(i, "Lab " + str(i), dueDate))  # how does dueDate get here though
+    while i < int(self.numLabs):
+      self.labs.append(Assignment(i + 1, "Lab " + str(i + 1)))  # should we ask for duedate for each assignment still or nah
+      self.labs[i].printAssignment()
+      i += 1
+  
 
-  def createPSetsList():
+  def createPSetsList(self):
     i = 0
-    while i < numProb:
-      problemSets.append(Assignment(i, "Problem Set " + str(i), dueDate))
+    while i < int(self.numProb):
+      problemSets.append(Assignment(i, "Problem Set " + str(i)))
+      
 
   def printCourse(self):
     print(self.courseCode, self.numStudents, self.numLabs, self.numLectures, self.numPSets)

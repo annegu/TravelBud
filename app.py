@@ -35,7 +35,8 @@ def newCourse():
         #form.numLectures.data
         COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, form.numLectures.data, form.numPS.data))
         COURSES.append(form.courseCode.data)
-        COURSE_OBJS[0].printCourse()
+        COURSE_OBJS[0].createLabsList()
+
         return render_template("home.html", message = "Successfully signed up")
     return render_template("newCourse.html", form = form)
 
