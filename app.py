@@ -19,21 +19,8 @@ class StudentCourseData:
     self.labsCompleted = []
     self.PSCompleted = []
 
-<<<<<<< HEAD
-class Course:
-  def __init__(self, cCode, numLab, numLec, numProb):
-    self.courseCode = cCode
-    self.numStudents = 1
-    self.numLabs = numLab
-    self.numLectures = numLec
-    self.numPSets = numProb
-    self.labs = []
-    self.problemSets = []
-
-=======
 if __name__ == "__main__":
     app.run()#debug=True
->>>>>>> 3c1d531e974dd21d4ec30c9c22263c78fac5a861
 
 class Assignment:
     def __init__(self, id, name, dueDate, worth):
@@ -49,17 +36,6 @@ class Student:
         self.courses = []
         self.courseData = []
         
-<<<<<<< HEAD
-
-
-if __name__ == "__main__":
-    app.run()#debug=True
-
-
-
-
-
-=======
 class StudentCourseData:
   def __init__(self):
     self.labsCompleted = []
@@ -74,4 +50,3 @@ class Course:
     self.numPSets = numProb
     self.labs = []
     self.problemSets = []
->>>>>>> 3c1d531e974dd21d4ec30c9c22263c78fac5a861
