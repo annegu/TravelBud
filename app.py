@@ -27,8 +27,11 @@ def signup():
 def newCourse():
     form = f.addNewCourse()
     if form.validate_on_submit():
-        new_user = {"id": len(users)+1, "full_name": form.full_name.data, "email": form.email.data, "password": form.password.data}
-        users.append(new_user)
+        #
+        # form.courseCode.data
+        #form.numLabs.data
+        # form.numPS.data
+        #form.numLectures.data
         return render_template("newCourse.html", message = "Successfully signed up")
     return render_template("newCourse.html", form = form)
 
