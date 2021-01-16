@@ -21,10 +21,6 @@ def changePage():
     """View function for Home Page."""
 
     return render_template("coursePage.html", courseName = "IT WORKEDDD")
-class StudentCourseData:
-  def __init__(self):
-    self.labsCompleted = []
-    self.PSCompleted = []
 
 if __name__ == "__main__":
     app.run()#debug=True
