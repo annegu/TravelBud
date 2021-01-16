@@ -25,3 +25,29 @@ body {
     margin-left: 160px; /* Same as the width of the sidebar */
     padding: 0px 10px;
 }
+
+/* Star rating */
+
+.star{
+    color: goldenrod;
+    font-size: 2.0rem;
+}
+.star::before{
+content: '\2606';
+cursor: pointer;
+}
+.star.rated::before{
+content: '\2605';
+}
+
+.stars{
+    counter-reset: rateme 0;   
+    font-size: 2.0rem;
+    font-weight: 900;
+}
+.star.rated{
+    counter-increment: rateme 1;
+}
+.stars::after{
+  /*  content: counter(rateme) '/5';*/
+}
