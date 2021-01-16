@@ -13,3 +13,22 @@ def homepage():
 
 if __name__ == "__main__":
     app.run()#debug=True
+
+
+
+
+
+class StudentCourseData:
+  def __init__(self):
+    self.labsCompleted = []
+    self.PSCompleted = []
+
+class Course:
+  def __init__(self, cCode, numLab, numLec, numProb):
+    self.courseCode = cCode
+    self.numStudents = 1
+    self.numLabs = numLab
+    self.numLectures = numLec
+    self.numPSets = numProb
+    self.labs = []
+    self.problemSets = []
