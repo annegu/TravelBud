@@ -3,12 +3,17 @@ body {
 }
 
 .navbar-fixed-left {
+    margin-top: 30px;
     background-color:green;
     padding-top: 30px;
     width: 140px;
     position: fixed;
     border-radius: 0;
     height: 100%;
+}
+
+.navbar {
+    background-color:lightgrey;
 }
 
 /* Style page content */
