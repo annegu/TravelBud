@@ -15,47 +15,11 @@ def signup():
     return render_template("signup.html", form = form)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    app.run()#debug=True
 
 class Assignment:
-    def __init__(self, id, name, dueDate, worth, classRating, numDone):
+    def __init__(self, id, name, dueDate, worth):
         self.id = id
         self.name = name
         self.dueDate = dueDate
@@ -68,11 +32,6 @@ class Student:
         self.courses = []
         self.courseData = []
         
-
-
-if __name__ == "__main__":
-    app.run()#debug=True
-
 class StudentCourseData:
   def __init__(self):
     self.labsCompleted = []
