@@ -1,30 +1,58 @@
 class Assignment:
-    def __init__(self, id, name):
-        self.id = id
-        self.name = name
-        # self.dueDate = dueDate
-        self.classRating = 0
-        self.numDone = 0
+  def __init__(self, id, name):
+    self.id = id
+    self.name = name
+    # self.dueDate = dueDate
+    self.classRating = 0
+    self.numDone = 0
 
-    def printAssignment(self):
-        print(self.id, self.name)
+  # for debugging
+  def printAssignment(self):
+    print(self.id, self.name)
+
+  def updateClassRating(self, numStudents, addedRating):
+    self.classRating = (numStudents*classRating + addedRating) / (numStudents + 1)
+
+  def updateNumDone(self):
+    self.numDone += 1
+
+    
+
+
+
 
 class Student: 
-    def __init__(self):
-        self.courses = []
- 
+  def __init__(self):
+    self.courses = []
+
+  def addCourse(self, cCode):
+    self.courses.append((cCode, StudentCourseData()))
+
+
+
+
+
 class StudentCourseData:
   def __init__(self):
     self.labsCompleted = []
     self.PSCompleted = []
 
-  def addLab(rating):
-        labNum = len(labsCompleted)
-        labsCompleted.append(labNum + 1, rating)
+  def addLab(self, rating):
+    labNum = len(labsCompleted)
+    self.labsCompleted.append((labNum + 1, rating))
+    
+    i = 0
+    while i < len(labsCompleted):
+      print(self.labsCompleted[i])
+
+  
         
-  def addPS(rating):
-        PSnum = len(PScompleted)
-        PScompleted.append(PSnum + 1, rating)
+  def addPS(self, rating):
+    PSnum = len(PScompleted)
+    self.PScompleted.append((PSnum + 1, rating))
+
+
+
 
 class Course:
   def __init__(self, cCode, numLab, numLec, numProb):
@@ -36,23 +64,22 @@ class Course:
     self.labs = []
     self.problemSets = []
 
-  def addStudent():
-    numStudents = numStudents + 1 # every time a new student adds the course to their page
+  def addStudent(self):
+    self.numStudents += 1
 
   def createLabsList(self):
     i = 0
     while i < int(self.numLabs):
       self.labs.append(Assignment(i + 1, "Lab " + str(i + 1)))  # should we ask for duedate for each assignment still or nah
-      self.labs[i].printAssignment()
       i += 1
   
-
   def createPSetsList(self):
     i = 0
     while i < int(self.numProb):
-      problemSets.append(Assignment(i, "Problem Set " + str(i)))
+      self.problemSets.append(Assignment(i + 1, "Problem Set " + str(i + 1)))
+      i += 1
       
-
+  # for debugging
   def printCourse(self):
     print(self.courseCode, self.numStudents, self.numLabs, self.numLectures, self.numPSets)
 
