@@ -19,7 +19,7 @@ def signup():
 @app.route("/changePage",  methods=["POST", "GET"])
 def changePage():
     """View function for Home Page."""
-
+    print(request.id)
     return render_template("coursePage.html", courseName = "IT WORKEDDD")
 
 if __name__ == "__main__":
