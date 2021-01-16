@@ -6,6 +6,7 @@ app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
 
 
 COURSES = ["ece216","ece221","ece231","ece243","ece216","ece221","ece231","ece243"]
+COURSE_OBJS = []
 stud = db.Student()
 
 @app.route("/")
@@ -32,7 +33,10 @@ def newCourse():
         #form.numLabs.data
         # form.numPS.data
         #form.numLectures.data
-        return render_template("newCourse.html", message = "Successfully signed up")
+        COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, form.numLectures.data, form.numPS.data))
+        COURSES.append(form.courseCode.data)
+        COURSE_OBJS[0].printCourse()
+        return render_template("home.html", message = "Successfully signed up")
     return render_template("newCourse.html", form = form)
 
 

@@ -46,6 +46,9 @@ class Course:
     while i < numProb:
       problemSets.append(Assignment(i, "Problem Set " + str(i), dueDate))
 
+  def printCourse(self):
+    print(self.courseCode, self.numStudents, self.numLabs, self.numLectures, self.numPSets)
+
   
     
   
