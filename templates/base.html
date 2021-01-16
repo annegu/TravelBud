@@ -6,7 +6,17 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />  
 </head>
 <body>
-
+    <h1>Different links:
+        <div>
+            <ul style="list-style-type: none;float: right;font-size: large;">
+                <li style="display:inline"><a href="{{url_for('homepage')}}">Home</a></li>
+                <li style="display:inline"><a href="{{url_for('signup')}}">About</a></li>
+                <li style="display:inline"><a href="{{url_for('newCourse')}}">Sign Up</a></li>
+            </ul>
+        </div>    
+    
+    
+    </h1>
     {%for c in Courses %}
     <a href=changePage ><button id={{c}} class=grey style="height:75px;width:150px">{{c}}</button></a>
 

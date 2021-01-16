@@ -1,11 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,abort
+import forms as f
 import db
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
+
 
 COURSES = ["ece216","ece221","ece231","ece243","ece216","ece221","ece231","ece243"]
 stud = db.Student()
 
-@app.route("/",  methods=["POST", "GET"])
+@app.route("/")
 def homepage():
     """View function for Home Page."""
 
@@ -13,15 +16,20 @@ def homepage():
 
 @app.route("/signup", methods=["POST", "GET"])
 def signup():
-    form = SignUpForm()
+    form = f.SignUpForm()
     return render_template("signup.html", form = form)
+
+@app.route("/newCourse", methods=["POST", "GET"])
+def newCourse():
+    form = f.addNewCourse()
+    return render_template("newCourse.html", form = form)
 
 
 @app.route("/changePage",  methods=["POST", "GET"])
 def changePage():
     """View function for Home Page."""
     #print(request.id)
-    return render_template("coursePage.html", courseName = "IT WORKEDDD")
+    return render_template("coursePage.html", courseName = "IT WORKEDDD",Courses = COURSES)
 
 if __name__ == "__main__":
     app.run()#debug=True
