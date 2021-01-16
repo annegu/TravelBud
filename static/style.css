@@ -5,13 +5,16 @@ body {
 .navbar-fixed-left {
     margin-top: 30px;
     background-color: lightgray;
-    padding-top: 30px;
+    padding-top: 10px;
     width: 140px;
     position: fixed;
     border-radius: 0;
     height: 100%;
 }
 
+.nav-link {
+    color: black
+}
 
 /* Style page content */
 .main {
