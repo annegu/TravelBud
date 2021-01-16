@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+COURSES = []
 
 
 @app.route("/")
@@ -8,6 +9,10 @@ def homepage():
     """View function for Home Page."""
     return render_template("home.html")
 
+@app.route("/signup", methods=["POST", "GET"])
+def signup():
+    form = SignUpForm()
+    return render_template("signup.html", form = form)
 
 
 
@@ -67,10 +72,6 @@ class Student:
 
 if __name__ == "__main__":
     app.run()#debug=True
-
-
-
-
 
 class StudentCourseData:
   def __init__(self):
