@@ -38,17 +38,17 @@ class StudentCourseData:
     self.PSCompleted = []
 
   def addLab(self, rating):
-    labNum = len(labsCompleted)
+    labNum = len(self.labsCompleted)
     self.labsCompleted.append((labNum + 1, rating))
     
-    i = 0
-    while i < len(labsCompleted):
-      print(self.labsCompleted[i])
+    
+    for lab in self.labsCompleted:
+      print(lab)
 
   
         
   def addPS(self, rating):
-    PSnum = len(PScompleted)
+    PSnum = len(self.PScompleted)
     self.PScompleted.append((PSnum + 1, rating))
 
 

@@ -52,3 +52,5 @@ def changePage(curCourse):
 
 if __name__ == "__main__":
     app.run()#debug=True
+
+#return redirect("http://www.example.com", code=302)
