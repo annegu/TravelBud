@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def homepage():
     """View function for Home Page."""
-    return render_template("home.html", pets = pets)
+    return render_template("home.html")
 
 
 
