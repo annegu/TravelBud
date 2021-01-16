@@ -9,44 +9,20 @@ def homepage():
     return render_template("home.html")
 
 
+class StudentCourseData:
+  def __init__(self):
+    self.labsCompleted = []
+    self.PSCompleted = []
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class Course:
+  def __init__(self, cCode, numLab, numLec, numProb):
+    self.courseCode = cCode
+    self.numStudents = 1
+    self.numLabs = numLab
+    self.numLectures = numLec
+    self.numPSets = numProb
+    self.labs = []
+    self.problemSets = []
 
 
 class Assignment:
@@ -72,17 +48,3 @@ if __name__ == "__main__":
 
 
 
-class StudentCourseData:
-  def __init__(self):
-    self.labsCompleted = []
-    self.PSCompleted = []
-
-class Course:
-  def __init__(self, cCode, numLab, numLec, numProb):
-    self.courseCode = cCode
-    self.numStudents = 1
-    self.numLabs = numLab
-    self.numLectures = numLec
-    self.numPSets = numProb
-    self.labs = []
-    self.problemSets = []
