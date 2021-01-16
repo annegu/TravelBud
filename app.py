@@ -11,6 +11,60 @@ def homepage():
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Assignment:
+    def __init__(self, id, name, dueDate, worth, classRating, numDone):
+        self.id = id
+        self.name = name
+        self.dueDate = dueDate
+        self.worth = worth
+        self.classRating = 0
+        self.numDone = 0
+
+class Student: 
+    def __init__(self, courses, courseData):
+        self.courses = []
+        self.courseData = []
+        
+
+
 if __name__ == "__main__":
     app.run()#debug=True
 
