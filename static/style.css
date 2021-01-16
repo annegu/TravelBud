@@ -16,6 +16,10 @@ body {
     color: black
 }
 
+.course-title {
+    padding-top: 10px;
+}
+
 /* Style page content */
 .main {
     margin-left: 160px; /* Same as the width of the sidebar */
