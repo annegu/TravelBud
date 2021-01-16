@@ -9,12 +9,19 @@ class Assignment:
 class Student: 
     def __init__(self):
         self.courses = []
-        self.courseData = []
         
 class StudentCourseData:
   def __init__(self):
     self.labsCompleted = []
     self.PSCompleted = []
+
+  def addLab(rating):
+        labNum = len(labsCompleted)
+        labsCompleted.append(labNum + 1, rating)
+        
+  def addPS(rating):
+        PSnum = len(PScompleted)
+        PScompleted.append(PSnum + 1, rating)
 
 class Course:
   def __init__(self, cCode, numLab, numLec, numProb):
