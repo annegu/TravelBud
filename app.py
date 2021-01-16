@@ -17,11 +17,19 @@ def homepage():
 @app.route("/signup", methods=["POST", "GET"])
 def signup():
     form = f.SignUpForm()
+    if form.validate_on_submit():
+        new_user = {"id": len(users)+1, "full_name": form.full_name.data, "email": form.email.data, "password": form.password.data}
+        users.append(new_user)
+        return render_template("signup.html", message = "Successfully signed up")
     return render_template("signup.html", form = form)
 
 @app.route("/newCourse", methods=["POST", "GET"])
 def newCourse():
     form = f.addNewCourse()
+    if form.validate_on_submit():
+        new_user = {"id": len(users)+1, "full_name": form.full_name.data, "email": form.email.data, "password": form.password.data}
+        users.append(new_user)
+        return render_template("newCourse.html", message = "Successfully signed up")
     return render_template("newCourse.html", form = form)
 
 
