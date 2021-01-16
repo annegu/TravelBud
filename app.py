@@ -40,11 +40,10 @@ def newCourse():
     return render_template("newCourse.html", form = form)
 
 
-@app.route("/changePage",  methods=["POST", "GET"])
-def changePage():
+@app.route("/course/<curCourse>",  methods=["POST", "GET"])
+def changePage(curCourse):
     """View function for Home Page."""
-    #print(request.id)
-    return render_template("coursePage.html", courseName = "IT WORKEDDD",Courses = COURSES)
+    return render_template("coursePage.html", courseName = curCourse,Courses = COURSES)
 
 if __name__ == "__main__":
     app.run()#debug=True
