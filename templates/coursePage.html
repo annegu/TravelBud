@@ -37,6 +37,7 @@
          </ul>   
         </div>
     </nav>
+    <h1 id="title">  </h1>
 
     <div id="content">
         <!-- Top Nav Bar -->
@@ -57,7 +58,6 @@
       <li class="nav-item">
           <a class="nav-link" href="#lectures">Lectures</a>
       </li>
-      
    </ul>   
   </div>
 </nav>
@@ -93,11 +93,11 @@
                       Select difficulty
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Very Difficult</a>
-                      <a class="dropdown-item" href="#">Difficult</a>
-                      <a class="dropdown-item" href="#">Neutral</a>
-                      <a class="dropdown-item" href="#">Easy</a>
-                      <a class="dropdown-item" href="#">Very Easy</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 5 )}}">Very Difficult</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 4 )}}">Difficult</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 3 )}}">Neutral</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
                     </div>
                   </div>
               </td>
@@ -135,11 +135,11 @@
                     Select difficulty
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Very Difficult</a>
-                    <a class="dropdown-item" href="#">Difficult</a>
-                    <a class="dropdown-item" href="#">Neutral</a>
-                    <a class="dropdown-item" href="#">Easy</a>
-                    <a class="dropdown-item" href="#">Very Easy</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 5 )}}">Very Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 4 )}}">Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 3 )}}">Neutral</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 2 )}}">Easy</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
                 </div>
               </td>
             </tr>
@@ -176,11 +176,11 @@
                     Select difficulty
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Very Difficult</a>
-                    <a class="dropdown-item" href="#">Difficult</a>
-                    <a class="dropdown-item" href="#">Neutral</a>
-                    <a class="dropdown-item" href="#">Easy</a>
-                    <a class="dropdown-item" href="#">Very Easy</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 5 )}}">Very Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 4 )}}">Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 3 )}}">Neutral</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 2 )}}">Easy</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 1 )}}">Very Easy</a>
                 </div>
               </td>
             </tr>
