@@ -5,11 +5,12 @@
     <title>Sookeong's Marvelous Idea</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style.css" />
-
-    <script src="{{url_for('static', filename='home.js')}}"></script>
 </head>
-
 <body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
     <!-- Side Nav Bar -->    
     <nav class = "navbar-fixed-left">
         <div class="container-fluid">
@@ -17,8 +18,9 @@
                 <a class="navbar-brand" href="#"></a>
             </div>
         <h3>Courses</h3>
-
         <ul class="nav navbar-nav">
+
+
             {%for c in Courses %}
 
             {% if courseName == c %}<li class="nav-item active">{%endif%}
@@ -35,146 +37,163 @@
          </ul>   
         </div>
     </nav>
+    <h1 id="title">  </h1>
 
     <div id="content">
         <!-- Top Nav Bar -->
-        <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand active" href="/">Progress Tracker</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#assignments">Assignments</a>
-                </li> 
+<nav class = "navbar sticky-top navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+      <div class="navbar-header">
+          <a class="navbar-brand active" href="/">Progress Tracker</a>
+      </div>
+  <ul class="nav navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="#assignments">Assignments</a>
+      </li> 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#labs">Labs</a>
-                </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#labs">Labs</a>
+      </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#lectures">Lectures</a>
-                </li>
-            </ul>   
-        </div>
-        </nav>
-    </div>
-    <div class="main">
-        <div class="container-fluid">
-            <h1 class="page-title">{{courseName}}</h1>
-            <!-- Assignments -->
-            <a id="assignments"><h2 class="category-title">Assignments</h2></a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Class Progress</th>
-                        <th scope="col">Class Rating</th>
-                        <th scope="col">Your Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if Assignments %}
-                    {%for a in Assignments %}
-                    <tr>
-                        <th scope="row">a.name</th>
-                        <td>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                        </div>
-                        </td>
-                        <td>Rating</td>
-                        <td>
-                            <div class="stars" data-rating="0">
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                            </div>
-                        </td>
-                    </tr>
-                    {%endfor%}
-                    {%endif%}
-                </tbody>
-            </table>      
+      <li class="nav-item">
+          <a class="nav-link" href="#lectures">Lectures</a>
+      </li>
+   </ul>   
+  </div>
+</nav>
+<div class="main">
+  <div class="container-fluid">
+      <h1 class="page-title">{{courseName}}</h1>
+      <!-- Assignments -->
+      <a id="assignments"><h2 class="category-title">Assignments</h2></a>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Class Progress</th>
+              <th scope="col">Class Rating</th>
+              <th scope="col">Your Rating</th>
+            </tr>
+          </thead>
+          <tbody>
 
-            <br>
-            <!-- Labs -->
-            <a id="labs"><h2 class="category-title">Labs</h2></a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Class Progress</th>
-                        <th scope="col">Class Rating</th>
-                        <th scope="col">Your Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if Labs %}
-                    {%for l in Labs %}
-                    <tr>
-                        <th scope="row">l.name</th>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
-                        </td>
-                        <td>Rating</td>
-                        <td>
-                            <div class="stars" data-rating="0">
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                            </div>
-                        </td>
-                    </tr>
-                    {%endfor%}
-                    {%endif%}
-                </tbody>
-            </table>
-            <br>
+            {% if Assignments %}
+              {%for a in Assignments %}
+            <tr>
+              <th scope="row">{{a.name}}</th>
+              <td>
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+              </td>
+              <td>Rating</td>
+              <td>
+               <!---->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Select difficulty
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 5 )}}">Very Difficult</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 4 )}}">Difficult</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 3 )}}">Neutral</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
+                        <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
+                    </div>
+                  </div>
 
-            <!-- Lectures -->
-            <a id="lectures"><h2 class="category-title">Lectures</h2></a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Class Progress</th>
-                        <th scope="col">Class Rating</th>
-                        <th scope="col">Your Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if Course%}
-                    {%for i in range(Course.numLectures) %}
-                    <tr>
-                        <th scope="row">Lecture {{i}}</th>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                            </div>
-                        </td>
-                        <td>Rating</td>
-                        <td>
-                            <div class="stars" data-rating="0">
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                            </div>
-                        </td>
-                    </tr>
-                    {%endfor%}
-                    {%endif%}
-                </tbody>
-            </table>
-        </div>
+                  <!---->
+              </td>
+            </tr>
+              {%endfor%}
+              {%endif%}
+          </tbody>
+      </table>      
+
+    <br>
+      <!-- Labs -->
+      <a id="labs"><h2 class="category-title">Labs</h2></a>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Class Progress</th>
+              <th scope="col">Class Rating</th>
+              <th scope="col">Your Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if Labs %}
+            {%for l in Labs %}
+            <tr>
+              <th scope="row">{{l.name}}</th>
+              <td>
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+              </td>
+              <td>Rating</td>
+              <td>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select difficulty
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 5 )}}">Very Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 4 )}}">Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 3 )}}">Neutral</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 2 )}}">Easy</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lab', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
+                </div>
+              </td>
+            </tr>
+            {%endfor%}
+            {%endif%}
+          </tbody>
+      </table>
+  <br>
+
+      <!-- Lectures -->
+      <a id="lectures"><h2 class="category-title">Lectures</h2></a>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Class Progress</th>
+              <th scope="col">Class Rating</th>
+              <th scope="col">Your Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if Lectures %}
+            {%for i in Lectures %}
+            <tr>
+              <th scope="row">{{i.name}}</th>
+              <td>
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  </div>
+              </td>
+              <td>Rating</td>
+              <td>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select difficulty
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 5 )}}">Very Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 4 )}}">Difficult</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 3 )}}">Neutral</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 2 )}}">Easy</a>
+                    <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'lec', assNum = i, rating = 1 )}}">Very Easy</a>
+                </div>
+              </td>
+            </tr>
+            {%endfor%}
+            {%endif%}
+          </tbody>
+      </table>
+
+  </div>
+</div>
     </div>
 </body>
 </html>
