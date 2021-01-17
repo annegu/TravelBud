@@ -68,16 +68,12 @@ class Course:
     self.numStudents += 1
 
   def createLabsList(self):
-    i = 0
-    while i < int(self.numLabs):
-      self.labs.append(Assignment(i + 1, "Lab " + str(i + 1)))  # should we ask for duedate for each assignment still or nah
-      i += 1
+    for lab in self.labs:
+      self.labs.append(Assignment(i + 1), "Lab " + str(i + 1))
   
   def createPSetsList(self):
-    i = 0
-    while i < int(self.numProb):
-      self.problemSets.append(Assignment(i + 1, "Problem Set " + str(i + 1)))
-      i += 1
+    for PSet in self.problemSets:
+      self.problemSets.append(Assignment(i + 1), "Problem Set " + str(i + 1))
       
   # for debugging
   def printCourse(self):
