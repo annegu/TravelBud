@@ -85,9 +85,19 @@ def changePage(curCourse):
             assignments = course.problemSets
             lectures = course.lectures
             sendCourse = course
+            studass = [x for x,y in studData.PSCompleted]
+            studlec =  [x for x,y in studData.lecsCompleted]
+            studlab= [x for x,y in studData.labsCompleted]
+            rlab = [y for x,y in studData.labsCompleted]
+            rlec = [y for x,y in studData.lecsCompleted] 
+            rass =[y for x,y in studData.PSCompleted]
+
+            print(studass,studlec,studlab)
+
+
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
-                Student = stud, studLab =[x for x,y in studData.labsCompleted] ,studAss = [x for x,y in studData.PSCompleted],studLec =  [x for x,y in studData.lecsCompleted], 
-                rLab = [y for x,y in studData.labsCompleted],rLec =[y for x,y in studData.lecsCompleted] ,rAss = [y for x,y in studData.PSCompleted])
+                Student = stud, studLab = studlab,studAss = studass,studLec = studlec, 
+                rLab = rlab, rLec = rlec, rAss = rass)
  
     return "NOT A VALID COURSE"
  
