@@ -88,13 +88,16 @@
                         </td>
                         <td>Rating</td>
                         <td>
-                            <div class="stars" data-rating="0">
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                            </div>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select difficulty
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 5 )}}">Very Difficult</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 4 )}}">Difficult</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 3 )}}">Neutral</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
+                              </div>
                         </td>
                     </tr>
                     {%endfor%}
@@ -126,13 +129,16 @@
                         </td>
                         <td>Rating</td>
                         <td>
-                            <div class="stars" data-rating="0">
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                            </div>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select difficulty
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 5 )}}">Very Difficult</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 4 )}}">Difficult</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 3 )}}">Neutral</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
+                              </div>
                         </td>
                     </tr>
                     {%endfor%}
@@ -164,13 +170,16 @@
                         </td>
                         <td>Rating</td>
                         <td>
-                            <div class="stars" data-rating="0">
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                                <span class="star">&nbsp;</span>
-                            </div>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select difficulty
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 5 )}}">Very Difficult</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 4 )}}">Difficult</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 3 )}}">Neutral</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
+                                  <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
+                              </div>
                         </td>
                     </tr>
                     {%endfor%}
