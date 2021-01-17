@@ -1,3 +1,4 @@
+import random 
 from flask import Flask, render_template,abort,redirect
 import forms as f
 import db
@@ -73,7 +74,7 @@ def findCourse():
         
         return redirect("/newCourse")
  
-    return render_template("joinCourse.html", form = form)
+    return render_template("joinCourse.html", form = form,Courses = COURSES)
  
  
 @app.route("/course/<curCourse>",  methods=["POST", "GET"])
@@ -92,12 +93,14 @@ def changePage(curCourse):
             rlec = [y for x,y in studData.lecsCompleted] 
             rass =[y for x,y in studData.PSCompleted]
 
-            print(studass,studlec,studlab)
-
+            ran = []
+            for i in range(100):
+                ran.append(random.randint(0,100)) 
+                print(ran)
 
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
                 Student = stud, studLab = studlab,studAss = studass,studLec = studlec, 
-                rLab = rlab, rLec = rlec, rAss = rass)
+                rLab = rlab, rLec = rlec, rAss = rass, ran = ran)
  
     return "NOT A VALID COURSE"
  
