@@ -11,7 +11,7 @@ COURSE_OBJS = []
 stud = db.Student()
 studData = db.StudentCourseData()
 ran = []
-for i in range(100):
+for i in range(10000):
     ran.append(random.randint(0,100)) 
  
 @app.route("/")
@@ -98,7 +98,7 @@ def changePage(curCourse):
 
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
                 Student = stud, studLab = studlab,studAss = studass,studLec = studlec, 
-                rLab = rlab, rLec = rlec, rAss = rass, ran = ran)
+                rLab = rlab, rLec = rlec, rAss = rass, ran = ran[int(curCourse[3:]):])
  
     return "NOT A VALID COURSE"
  
