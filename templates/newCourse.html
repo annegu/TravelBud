@@ -16,23 +16,19 @@
             </div>
         <h3>Courses</h3>
         <ul class="nav navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Course 1</a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">Course 2</a>
+            {%for c in Courses %}
+
+            {% if courseName == c %}<li class="nav-item active">{%endif%}
+            {% if courseName == c %}<li class="nav-item">{%endif%}
+                <a class="nav-link" href="{{url_for('changePage', curCourse = c )}}">{{c}}</a>
             </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="#">Course 3</a>
-            </li>
+            {% endfor %}
 
             <hr>
 
             <li class="nav-item active">
                 <a class="nav-link" href="/newCourse">Add a Course</a>
-
             </li> 
          </ul>   
         </div>
