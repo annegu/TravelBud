@@ -111,7 +111,7 @@ def rate(curCourse,assType,assNum,rating):
                 stud.addCourse(curCourse, studData)
 
     # return redirect("/course/" + curCourse)
-    return render_template("coursePage.html", Student = stud, Student = studData)
+    return render_template("coursePage.html", Student = stud, StudentData = studData)
 
 if __name__ == "__main__":
     app.run()
