@@ -46,13 +46,14 @@ def newCourse():
         #form.numLabs.data
         # form.numPS.data
         #form.numLectures.data
-        COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, int(form.numLectures.data), form.numPS.data))
+        COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, form.numLectures.data, form.numPS.data))
         COURSES.append(form.courseCode.data)
         
         for courseObj in COURSE_OBJS:
             if form.courseCode.data == courseObj.courseCode:
                 courseObj.createLabsList()
                 courseObj.createPSetsList()
+                courseObj.createLecturesList()
         
         # return redirect("/course/" + form.courseCode.data)
         return redirect("/")
@@ -81,8 +82,9 @@ def changePage(curCourse):
         if curCourse == course.courseCode:
             labs = course.labs
             assignments = course.problemSets
+            lectures = course.lectures
             sendCourse = course
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse)
+            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse)
  
     return "NOT A VALID COURSE"
  
