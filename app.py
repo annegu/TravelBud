@@ -88,8 +88,8 @@ def changePage(curCourse):
  
     return "NOT A VALID COURSE"
  
-@app.route("/rate/<curCourse>/<num>/",  methods=["POST", "GET"])
-def rate(curCourse,num):  
+@app.route("/rate/<curCourse>/<assType>/<assNum>/<rating>",  methods=["POST", "GET"])
+def rate(curCourse,assType,assNum,rating):  
     #COURSES.append("IT WORKEDDDD LETS GOOO")
     #mark assignment as complete
     #Update rating
