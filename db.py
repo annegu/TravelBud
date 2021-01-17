@@ -35,15 +35,15 @@ class StudentCourseData:
 
   def addLab(self, rating):
     labNum = len(self.labsCompleted)
-    self.labsCompleted.append((labNum + 1, rating))
+    self.labsCompleted.append((labNum, rating))
       
   def addPS(self, rating):
     PSnum = len(self.PScompleted)
-    self.PScompleted.append((PSnum + 1, rating))
+    self.PScompleted.append((PSnum , rating))
 
   def addLec(self, rating):
     lecNum = len(self.lecsCompleted)
-    self.lecsCompleted.append((lecNum + 1, rating))
+    self.lecsCompleted.append((lecNum , rating))
 
 
 
