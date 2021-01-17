@@ -41,11 +41,7 @@ def signup():
 def newCourse():
     form = f.addNewCourse()
     if form.validate_on_submit():
-        #
-        # form.courseCode.data
-        #form.numLabs.data
-        # form.numPS.data
-        #form.numLectures.data
+        
         COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, int(form.numLectures.data), form.numPS.data))
         COURSES.append(form.courseCode.data)
         
@@ -54,8 +50,8 @@ def newCourse():
                 courseObj.createLabsList()
                 courseObj.createPSetsList()
         
-        # return redirect("/course/" + form.courseCode.data)
-        return redirect("/")
+        return redirect("/course/" + form.courseCode.data)
+        # return redirect("/")
     return render_template("newCourse.html", form = form)  
  
  
