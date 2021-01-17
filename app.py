@@ -81,5 +81,3 @@ def rate(curCourse,num):
 
 if __name__ == "__main__":
     app.run()
-
-#return redirect("http://www.example.com", code=302)
