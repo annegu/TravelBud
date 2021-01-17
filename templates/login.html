@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="static/style.css" />
     <script type="text/javascript" src="{{url_for('static', filename='login.js')}}"></script>
 </head>
+
 <body>
+  <!-- Top Nav Bar -->
+  <nav class = "navbar sticky-top navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Progress Tracker</a>
+        </div>
+    </div>
+  </nav>
+
   <div class="login-title">
     <h1>Log In</h1>
   </div>
@@ -25,6 +35,6 @@
     </form>
   </div>
   <div class="signup-login-link">    
-    <a href="/signup">No account? Sign up</a>
+    Don't have an account? <a href="/signup">Sign up</a>
   </div>
 </body>
