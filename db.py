@@ -20,9 +20,9 @@ class Assignment:
 class Student: 
   def __init__(self):
     self.courses = []
-
-  def addCourse(self, cCode):
-    self.courses.append((cCode, StudentCourseData()))
+ 
+  def addCourse(self, cCode, data):
+    self.courses.append((cCode, data))
 
 
 
@@ -59,6 +59,7 @@ class Course:
     self.numPSets = numProb
     self.labs = []
     self.problemSets = []
+    self.lectures = []
 
   def addStudent(self):
     self.numStudents += 1
@@ -69,12 +70,16 @@ class Course:
       self.labs.append(Assignment(i + 1, "Lab " + str(i + 1)))
       i += 1
 
-    
-  
   def createPSetsList(self):
     i = 0
     while i < int(self.numPSets):
       self.problemSets.append(Assignment(i + 1, "Assignment " + str(i + 1)))
+      i += 1
+
+  def createLecturesList(self):
+    i = 0
+    while i < int(self.numLectures):
+      self.lectures.append(Assignment(i + 1, "Lecture " + str(i + 1)))
       i += 1
       
   # for debugging
