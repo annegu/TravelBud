@@ -53,6 +53,7 @@ def newCourse():
             if form.courseCode.data == courseObj.courseCode:
                 courseObj.createLabsList()
                 courseObj.createPSetsList()
+                courseObj.createLecturesList()
         
         # return redirect("/course/" + form.courseCode.data)
         return redirect("/")
@@ -81,8 +82,9 @@ def changePage(curCourse):
         if curCourse == course.courseCode:
             labs = course.labs
             assignments = course.problemSets
+            lectures = course.lectures
             sendCourse = course
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse)
+            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse)
  
     return "NOT A VALID COURSE"
  
@@ -97,10 +99,7 @@ def rate(curCourse,num):
             pass
  
  
- 
     return redirect("/")
  
 if __name__ == "__main__":
     app.run()
- 
- 
