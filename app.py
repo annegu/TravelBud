@@ -58,7 +58,7 @@ def newCourse():
         
         return redirect("/course/" + form.courseCode.data)
         # return redirect("/")
-    return render_template("newCourse.html", form = form)  
+    return render_template("newCourse.html", form = form, Courses = COURSES)  
  
  
 #User looks for courses to 'enroll' if not created prompts user to create the class
@@ -78,7 +78,7 @@ def findCourse():
  
 @app.route("/course/<curCourse>",  methods=["POST", "GET"])
 def changePage(curCourse):
- 
+    print()
     for course in COURSE_OBJS:
         if curCourse == course.courseCode:
             labs = course.labs
