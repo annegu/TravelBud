@@ -76,8 +76,8 @@
           </thead>
           <tbody>
 
-
-              {%for l in Courses %}
+            {% if Assignments %}
+              {%for a in Assignments %}
             <tr>
               <th scope="row">Item 1</th>
               <td>
@@ -97,6 +97,7 @@
               </td>
             </tr>
               {%endfor%}
+              {%endif%}
           </tbody>
       </table>      
 
@@ -113,6 +114,8 @@
             </tr>
           </thead>
           <tbody>
+            {% if Labs %}
+            {%for l in Labs %}
             <tr>
               <th scope="row">Item 1</th>
               <td>
@@ -131,26 +134,8 @@
                   </div>
               </td>
             </tr>
-            <tr>
-              <th scope="row">Item 2</th>
-              <td>
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                  </div>                    
-              </td>
-              <td>Rating</td>
-              <td>Rating</td>
-            </tr>
-            <tr>
-              <th scope="row">Item 3</th>
-              <td>
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                  </div>
-              </td>
-              <td>Rating</td>
-              <td>Rating</td>
-            </tr>
+            {%endfor%}
+            {%endif%}
           </tbody>
       </table>
   </br>
@@ -167,6 +152,8 @@
             </tr>
           </thead>
           <tbody>
+              {% if Course%}
+              {%for i in range(Course.numLectures) %}
             <tr>
               <th scope="row">Item 1</th>
               <td>
@@ -185,26 +172,8 @@
                   </div>
               </td>
             </tr>
-            <tr>
-              <th scope="row">Item 2</th>
-              <td>
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                  </div>                    
-              </td>
-              <td>Rating</td>
-              <td>Rating</td>
-            </tr>
-            <tr>
-              <th scope="row">Item 3</th>
-              <td>
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                  </div>
-              </td>
-              <td>Rating</td>
-              <td>Rating</td>
-            </tr>
+            {%endfor%}
+            {%endif%}
           </tbody>
       </table>
 

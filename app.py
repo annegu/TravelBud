@@ -46,7 +46,7 @@ def newCourse():
         #form.numLabs.data
         # form.numPS.data
         #form.numLectures.data
-        COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, form.numLectures.data, form.numPS.data))
+        COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, int(form.numLectures.data), form.numPS.data))
         COURSES.append(form.courseCode.data)
         
         for courseObj in COURSE_OBJS:
@@ -97,7 +97,7 @@ def rate(curCourse,num):
 
     for course in COURSE_OBJS:
         if curCourse == course.courseCode:
-
+            pass
 
 
     return redirect("/")
