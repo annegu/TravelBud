@@ -13,7 +13,7 @@ stud = db.Student()
 def homepage():
     """View function for Home Page."""
 
-    return render_template("coursePage.html", courseName = "Ece216",Courses = COURSES)
+    return render_template("coursePage.html", courseName = "Ece216", Courses = COURSES)
 
 @app.route("/signin", methods=["POST", "GET"])
 def signin():
@@ -72,7 +72,15 @@ def findCourse():
 @app.route("/course/<curCourse>",  methods=["POST", "GET"])
 def changePage(curCourse):
     """View function for Home Page."""
-    return render_template("coursePage.html", courseName = curCourse,Courses = COURSES)
+    
+    for course in COURSE_OBJS:
+        if curCourse == course.courseCode:
+            labs = course.labs
+            assignments = course.problemSets
+            sendCourse = course
+            
+
+    return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse)
 
 @app.route("/rate/<curCourse>/<num>",  methods=["POST", "GET"])
 def rate(curCourse,num):  
