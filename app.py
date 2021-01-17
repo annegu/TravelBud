@@ -8,6 +8,7 @@ users =[]
 COURSES = ["ece216","ece221","ece231","ece243","ece216","ece221","ece231","ece243"]
 COURSE_OBJS = []
 stud = db.Student()
+studData = db.StudentCourseData()
  
 @app.route("/")
 def homepage():
@@ -54,8 +55,8 @@ def newCourse():
                 courseObj.createLabsList()
                 courseObj.createPSetsList()
         
-        # return redirect("/course/" + form.courseCode.data)
-        return redirect("/")
+        return redirect("/course/" + form.courseCode.data)
+        # return redirect("/")
     return render_template("newCourse.html", form = form)  
  
  
@@ -83,23 +84,29 @@ def changePage(curCourse):
             assignments = course.problemSets
             sendCourse = course
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse)
- 
+
     return "NOT A VALID COURSE"
  
-@app.route("/rate/<curCourse>/<num>/",  methods=["POST", "GET"])
-def rate(curCourse,num):  
+@app.route("/rate/<curCourse>/<assType>/<assNum>/<rating>",  methods=["POST", "GET"])
+def rate(curCourse,assType,assNum,rating):  
     #COURSES.append("IT WORKEDDDD LETS GOOO")
     #mark assignment as complete
     #Update rating
  
     for course in COURSE_OBJS:
         if curCourse == course.courseCode:
-            pass
- 
- 
- 
-    return redirect("/")
- 
+            if assType == "Lab":
+                studData.addLab(rating)
+                stud.addCourse(curCourse, studData)
+
+            elif assType == "Ass":
+                studData.addPS(rating)
+                stud.addCourse(curCourse, studData)
+            
+            else: pass
+
+    return redirect("/course/" + curCourse)
+
 if __name__ == "__main__":
     app.run()
  
