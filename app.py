@@ -85,7 +85,8 @@ def changePage(curCourse):
             assignments = course.problemSets
             lectures = course.lectures
             sendCourse = course
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse)
+            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
+                Student = stud, StudentData = studData)
  
     return "NOT A VALID COURSE"
  
