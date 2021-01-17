@@ -72,7 +72,7 @@ def findCourse():
 @app.route("/course/<curCourse>",  methods=["POST", "GET"])
 def changePage(curCourse):
     """View function for Home Page."""
-    return render_template("coursePage.html", courseName = curCourse,Courses = COURSES)
+    return render_template("coursePage.html", courseName = curCourse, Courses = COURSES)
 
 @app.route("/rate/<curCourse>/<num>",  methods=["POST", "GET"])
 def rate(curCourse,num):  
