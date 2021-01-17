@@ -77,6 +77,8 @@ def changePage(curCourse):
 @app.route("/rate/<curCourse>/<num>",  methods=["POST", "GET"])
 def rate(curCourse,num):  
     COURSES.append("IT WORKEDDDD LETS GOOO")
+    #mark assignment as complete
+    #Update rating
     return redirect("/")
 
 if __name__ == "__main__":

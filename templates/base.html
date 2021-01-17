@@ -2,26 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %} {% endblock %} - Student Share</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />  
+    <title>Sookeong's Marvelous Idea</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css" />
+
+    <script src="{{url_for('static', filename='home.js')}}"></script>
 </head>
 <body>
-    <h1>Different links:
-        <div>
-            <ul style="list-style-type: none;float: right;font-size: large;">
-                <li style="display:inline"><a href="{{url_for('homepage')}}">Homepage</a></li>
-                <li style="display:inline"><a href="{{url_for('signup')}}">Signup</a></li>
-                <li style="display:inline"><a href="{{url_for('newCourse')}}">New Course</a></li>
-            </ul>
-        </div>    
-    
-    
-    </h1>
-    {%for c in Courses %}
-    <a href = "{{url_for('changePage', curCourse = c )}}" ><button id="numm" class=yellow style="height:75px;width:150px">{{c}}</button></a>
-    {% endfor %}
+    <!-- Side Nav Bar -->    
+    <nav class = "navbar-fixed-left">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+        <h3>Courses</h3>
+        <ul class="nav navbar-nav">
 
+
+            {%for c in Courses %}
+
+            {% if courseName == c %}<li class="nav-item active">{%endif%}
+            {% if courseName == c %}<li class="nav-item">{%endif%}
+                <a class="nav-link" href="{{url_for('changePage', curCourse = c )}}">{{c}}</a>
+            </li>
+            {% endfor %}
+
+            <hr>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/newCourse">Add a Course</a>
+            </li> 
+         </ul>   
+        </div>
+    </nav>
     <h1 id="title"> {% block heading %} {% endblock %} </h1>
+
     <div id="content">
         {% block content %} {% endblock %}
     </div>
