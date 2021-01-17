@@ -106,9 +106,12 @@ def rate(curCourse,assType,assNum,rating):
                 studData.addPS(rating)
                 stud.addCourse(curCourse, studData)
             
-            else: pass
+            else: 
+                studData.addLec(rating)
+                stud.addCourse(curCourse, studData)
 
-    return redirect("/course/" + curCourse)
+    # return redirect("/course/" + curCourse)
+    return render_template("coursePage.html", Student = stud, Student = studData)
 
 if __name__ == "__main__":
     app.run()
