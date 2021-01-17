@@ -21,29 +21,27 @@ class Student:
   def __init__(self):
     self.courses = []
 
-  def addCourse(self, cCode):
-    self.courses.append((cCode, StudentCourseData()))
+  def addCourse(self, cCode, data):
+    self.courses.append((cCode, data))
 
 
 class StudentCourseData:
   def __init__(self):
     self.labsCompleted = []
     self.PSCompleted = []
+    self.lecsCompleted = []
 
   def addLab(self, rating):
     labNum = len(self.labsCompleted)
     self.labsCompleted.append((labNum + 1, rating))
-    
-    
-    for lab in self.labsCompleted:
-      print(lab)
-
-  
-        
+      
   def addPS(self, rating):
     PSnum = len(self.PScompleted)
     self.PScompleted.append((PSnum + 1, rating))
 
+  def addLec(self, rating:)
+    lecNum = len(self.lecsComlpeted)
+    self.lecsComlpeted.append((lecNum + 1, rating))
 
 
 
