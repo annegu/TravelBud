@@ -84,7 +84,9 @@ def changePage(curCourse):
             labs = course.labs
             assignments = course.problemSets
             lectures = course.lectures
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures)
+            sendCourse = course
+            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
+                Student = stud, StudentData = studData)
  
     return "NOT A VALID COURSE"
  
@@ -99,14 +101,20 @@ def rate(curCourse,assType,assNum,rating):
             if assType == "Lab":
                 studData.addLab(rating)
                 stud.addCourse(curCourse, studData)
+                return redirect("/course/" + curCourse)
 
             elif assType == "Ass":
                 studData.addPS(rating)
                 stud.addCourse(curCourse, studData)
+                return redirect("/course/" + curCourse)
             
-            else: pass
+            else: 
+                studData.addLec(rating)
+                stud.addCourse(curCourse, studData)
+                return redirect("/course/" + curCourse)
 
-    return redirect("/course/" + curCourse)
+    # return redirect("/course/" + curCourse)
+    # return render_template("coursePage.html", Student = stud, StudentData = studData)
 
 if __name__ == "__main__":
     app.run()
