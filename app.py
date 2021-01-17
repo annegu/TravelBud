@@ -83,7 +83,7 @@ def changePage(curCourse):
             sendCourse = course
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse)
  
-    return <h1> NOT A VALID COURSE </h1>
+    return "NOT A VALID COURSE"
  
 @app.route("/rate/<curCourse>/<num>/",  methods=["POST", "GET"])
 def rate(curCourse,num):  
