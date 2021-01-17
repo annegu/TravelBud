@@ -5,11 +5,8 @@
     <title>Create a Course</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style.css" />
-
-    <!-- Icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
+
 <body>
      <!-- Side Nav Bar -->
      <nav class = "navbar-fixed-left">
@@ -19,22 +16,19 @@
             </div>
         <h3>Courses</h3>
         <ul class="nav navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Course 1</a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">Course 2</a>
+            {%for c in Courses %}
+
+            {% if courseName == c %}<li class="nav-item active">{%endif%}
+            {% if courseName == c %}<li class="nav-item">{%endif%}
+                <a class="nav-link" href="{{url_for('changePage', curCourse = c )}}">{{c}}</a>
             </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="#">Course 3</a>
-            </li> 
+            {% endfor %}
+
             <hr>
 
             <li class="nav-item active">
-                <a class="nav-link" href="/add-course">Add a Course</a>
-
+                <a class="nav-link" href="/newCourse">Add a Course</a>
             </li> 
          </ul>   
         </div>
@@ -53,27 +47,50 @@
     <div class="main">
         <div class="container-fluid">
             <h1 class="page-title">Create a Course</h1>
-
             <form action="{{url_for('newCourse')}}" method="POST" style="padding:5px;">
+
                 <!-- Course name Field -->
-                {{ form.courseCode.label }}: <br>
-                {{ form.courseCode }} 
-                <br>
-                <!-- number of labs Field -->
-                {{ form.numLabs.label }}: <br>
-                {{ form.numLabs }} 
-                <br>
-                <!-- number of problem sets Field -->
-                {{ form.numPS.label }}: <br>
-                {{ form.numPS }}
-                <br>
-                <!-- number of lectures Field -->
-                {{ form.numLectures.label }}: <br>
-                {{ form.numLectures }}
-                
+                <div class="row">
+                    <label for="courseNameInput" class="form-label">Course name</label>
+                    </br>
+                    {{ form.courseCode }} 
+                </div>
+                </br>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <!-- Input number of labs -->
+                            <label for="numLabsSelect" class="form-label">Number of labs</label>
+                            </br>
+                            {{ form.numLabs }}
+                        </div>
+                    </div>  
+                    </br>
+                    
+                    <div class="col">
+                        <div class="row">
+                            <!-- Input number of assignments -->
+                            <label for="numAsgnSelect" class="form-label">Number of assignments</label>
+                            </br>
+                            {{ form.numPS }}
+                        </div>
+                    </div>
+                    </br>
+
+                    <div class="col">
+                        <div class="row">
+                            <!-- Input number of lectures-->
+                            <label for="numLecsSelect" class="form-label">Number of lectures</label>
+                            </br>
+                            {{ form.numLectures }}
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Hidden CSRF Token Field -->
                 {{ form.csrf_token }}
-                <br>
+                </br>
                 <!-- Submit Field -->
                 {{ form.submit }}
             </form>
