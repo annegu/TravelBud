@@ -17,3 +17,14 @@ class addNewCourse(FlaskForm):
     numPS = StringField('How many sets are there?', validators = [InputRequired()])
     numLectures = StringField('How many lectures are there?', validators = [InputRequired()])
     submit = SubmitField('Add Course')
+
+class LoginForm(FlaskForm):
+    email = StringField('Email',
+                        validators = [InputRequired()])
+    password = PasswordField('Password', validators = [InputRequired()])
+    
+    submit = SubmitField('Login')
+
+class findCourse(FlaskForm):
+    courseCode = StringField('Course Code', validators = [InputRequired()])
+    submit = SubmitField('Find Course')

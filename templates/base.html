@@ -19,9 +19,8 @@
     </h1>
     {%for c in Courses %}
     <a href = "{{url_for('changePage', curCourse = c )}}" ><button id="numm" class=yellow style="height:75px;width:150px">{{c}}</button></a>
-
-
     {% endfor %}
+
     <h1 id="title"> {% block heading %} {% endblock %} </h1>
     <div id="content">
         {% block content %} {% endblock %}

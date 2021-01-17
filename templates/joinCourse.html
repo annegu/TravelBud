@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Sign-Up 
+{% endblock %}
+
+{% block heading %}
+Sign Up
+{% endblock %}
+
+{% block content %}
+{% if form %}
+<form action="{{url_for('findCourse')}}" method="POST" style="padding:5px;">
+    <!-- Email Field -->
+    {{ form.courseCode.label }}: <br>
+    {{ form.courseCode }} 
+    <br>
+
+     <!-- Hidden CSRF Token Field -->
+    {{ form.csrf_token }}
+    <br>
+     <!-- Submit Field -->
+    {{ form.submit }}
+</form> 
+{% endif %}
+{% endblock %}

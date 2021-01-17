@@ -10,11 +10,7 @@ Sign Up
 
 {% block content %}
 {% if form %}
-<form action="{{url_for('signup')}}" method="POST" style="padding:5px;">
-    <!-- Full Name Field -->
-    {{ form.full_name.label }}: <br>
-    {{ form.full_name }} 
-    <br>
+<form action="{{url_for('signin')}}" method="POST" style="padding:5px;">
     <!-- Email Field -->
     {{ form.email.label }}: <br>
     {{ form.email }} 
@@ -22,11 +18,6 @@ Sign Up
     <!-- Password Field -->
     {{ form.password.label }}: <br>
     {{ form.password }}
-    <br>
-    <!-- Confirm Password Field -->
-    {{ form.confirm_password.label }}: <br>
-    {{ form.confirm_password }}
-    
      <!-- Hidden CSRF Token Field -->
     {{ form.csrf_token }}
     <br>
