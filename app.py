@@ -10,6 +10,9 @@ COURSES = []
 COURSE_OBJS = []
 stud = db.Student()
 studData = db.StudentCourseData()
+ran = []
+for i in range(100):
+    ran.append(random.randint(0,100)) 
  
 @app.route("/")
 def homepage():
@@ -91,12 +94,7 @@ def changePage(curCourse):
             studlab= [x for x,y in studData.labsCompleted]
             rlab = [y for x,y in studData.labsCompleted]
             rlec = [y for x,y in studData.lecsCompleted] 
-            rass =[y for x,y in studData.PSCompleted]
-
-            ran = []
-            for i in range(100):
-                ran.append(random.randint(0,100)) 
-                
+            rass =[y for x,y in studData.PSCompleted]                
 
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
                 Student = stud, studLab = studlab,studAss = studass,studLec = studlec, 
