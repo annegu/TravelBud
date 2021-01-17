@@ -64,12 +64,14 @@ class Course:
     self.numStudents += 1
 
   def createLabsList(self):
-    for lab in self.labs:
+    i = 0
+    while i < int(self.numLabs):
       self.labs.append(Assignment(i + 1), "Lab " + str(i + 1))
   
   def createPSetsList(self):
-    for PSet in self.problemSets:
-      self.problemSets.append(Assignment(i + 1), "Problem Set " + str(i + 1))
+    i = 0
+    while i < int(self.numPSets):
+      self.problemSets.append(Assignment(i + 1), "Assignment " + str(i + 1))
       
   # for debugging
   def printCourse(self):
