@@ -96,7 +96,7 @@ def changePage(curCourse):
             ran = []
             for i in range(100):
                 ran.append(random.randint(0,100)) 
-                print(ran)
+                
 
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
                 Student = stud, studLab = studlab,studAss = studass,studLec = studlec, 
