@@ -42,7 +42,7 @@ class StudentCourseData:
     self.PScompleted.append((PSnum + 1, rating))
 
   def addLec(self, rating):
-    lecNum = len(self.lecsComlpeted)
+    lecNum = len(self.lecsCompleted)
     self.lecsComlpeted.append((lecNum + 1, rating))
 
 
