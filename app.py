@@ -34,7 +34,7 @@ def signup():
         new_user = {"id": len(users)+1, "full_name": form.full_name.data, "email": form.email.data, "password": form.password.data}
         users.append(new_user)
         print(new_user)
-        return render_template("home.html", message = "Successfully signed up") # go back to homepage after successful sign in... but why does url still say sign up doe
+        return render_template("coursePage.html", message = "Successfully signed up") # go back to homepage after successful sign in... but why does url still say sign up doe
     return render_template("signup.html", form = form)
 
 @app.route("/newCourse", methods=["POST", "GET"])
@@ -50,7 +50,7 @@ def newCourse():
         COURSES.append(form.courseCode.data)
         COURSE_OBJS[0].createLabsList()
         
-        return render_template("home.html", message = "Successfully added new course")
+        return render_template("coursePage.html", message = "Successfully added new course")
     return render_template("newCourse.html", form = form)  
 
 
