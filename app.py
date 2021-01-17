@@ -14,7 +14,7 @@ studData = db.StudentCourseData()
 def homepage():
     """View function for Home Page."""
  
-    return render_template("coursePage.html", Courses = COURSES)
+    return render_template("coursePage.html",courseName = "Welcome", Courses = COURSES, blank = 1)
  
 @app.route("/signin", methods=["POST", "GET"])
 def signin():
@@ -86,7 +86,8 @@ def changePage(curCourse):
             lectures = course.lectures
             sendCourse = course
             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
-                Student = stud, StudentData = studData)
+                Student = stud, studLab =[x for x,y in studData.labsCompleted] ,studAss = [x for x,y in studData.PSCompleted],studLec =  [x for x,y in studData.lecsCompleted], 
+                rLab = [y for x,y in studData.labsCompleted],rLec =[y for x,y in studData.lecsCompleted] ,rAss = [y for x,y in studData.PSCompleted])
  
     return "NOT A VALID COURSE"
  
@@ -95,7 +96,8 @@ def rate(curCourse,assType,assNum,rating):
     #COURSES.append("IT WORKEDDDD LETS GOOO")
     #mark assignment as complete
     #Update rating
- 
+    
+    
     for course in COURSE_OBJS:
         if curCourse == course.courseCode:
             if assType == "Lab":
