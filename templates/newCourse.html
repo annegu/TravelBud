@@ -1,35 +1,83 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Create a Course</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css" />
 
-{% block title %}
-New Course
-{% endblock %}
+    <!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-{% block heading %}
-Add new course
-{% endblock %}
+</head>
+<body>
+     <!-- Side Nav Bar -->
+     <nav class = "navbar-fixed-left">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+        <h3>Courses</h3>
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Course 1</a>
+            </li>
 
-{% block content %}
-<form action="{{url_for('newCourse')}}" method="POST" style="padding:5px;">
-    <!-- Course name Field -->
-    {{ form.courseCode.label }}: <br>
-    {{ form.courseCode }} 
-    <br>
-    <!-- number of labs Field -->
-    {{ form.numLabs.label }}: <br>
-    {{ form.numLabs }} 
-    <br>
-    <!-- number of problem sets Field -->
-    {{ form.numPS.label }}: <br>
-    {{ form.numPS }}
-    <br>
-    <!-- number of lectures Field -->
-    {{ form.numLectures.label }}: <br>
-    {{ form.numLectures }}
+            <li class="nav-item">
+                <a class="nav-link" href="#">Course 2</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#">Course 3</a>
+            </li> 
+            <hr>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/add-course">Add a Course</a>
+
+            </li> 
+         </ul>   
+        </div>
+    </nav>
+
+    <!-- Top Nav Bar -->
+    <nav class = "navbar sticky-top navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Progress Tracker</a>
+            </div>
+        </div>
+    </nav>
     
-     <!-- Hidden CSRF Token Field -->
-    {{ form.csrf_token }}
-    <br>
-     <!-- Submit Field -->
-    {{ form.submit }}
-</form> 
-{% endblock %}
+    <!-- Add course main page -->
+    <div class="main">
+        <div class="container-fluid">
+            <h1 class="page-title">Create a Course</h1>
+
+            <form action="{{url_for('newCourse')}}" method="POST" style="padding:5px;">
+                <!-- Course name Field -->
+                {{ form.courseCode.label }}: <br>
+                {{ form.courseCode }} 
+                <br>
+                <!-- number of labs Field -->
+                {{ form.numLabs.label }}: <br>
+                {{ form.numLabs }} 
+                <br>
+                <!-- number of problem sets Field -->
+                {{ form.numPS.label }}: <br>
+                {{ form.numPS }}
+                <br>
+                <!-- number of lectures Field -->
+                {{ form.numLectures.label }}: <br>
+                {{ form.numLectures }}
+                
+                <!-- Hidden CSRF Token Field -->
+                {{ form.csrf_token }}
+                <br>
+                <!-- Submit Field -->
+                {{ form.submit }}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
