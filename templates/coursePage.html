@@ -88,6 +88,7 @@
                         </td>
                         <td>Rating</td>
                         <td>
+                          {% if loop.index0 not in StudentData.PSCompleted %}
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Select difficulty
                               </button>
@@ -98,6 +99,7 @@
                                   <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
                                   <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
                               </div>
+                              {%endif%}
                         </td>
                     </tr>
                     {%endfor%}
@@ -129,6 +131,7 @@
                         </td>
                         <td>Rating</td>
                         <td>
+                            {% if loop.index0 not in StudentData.labsCompleted %}
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Select difficulty
                               </button>
@@ -139,6 +142,8 @@
                                   <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
                                   <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
                               </div>
+
+                              {% endif %}
                         </td>
                     </tr>
                     {%endfor%}

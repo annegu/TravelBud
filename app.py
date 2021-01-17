@@ -95,7 +95,8 @@ def rate(curCourse,assType,assNum,rating):
     #COURSES.append("IT WORKEDDDD LETS GOOO")
     #mark assignment as complete
     #Update rating
- 
+    
+    
     for course in COURSE_OBJS:
         if curCourse == course.courseCode:
             if assType == "Lab":
