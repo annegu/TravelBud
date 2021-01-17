@@ -82,8 +82,8 @@ def changePage(curCourse):
             labs = course.labs
             assignments = course.problemSets
             sendCourse = course
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse)
- 
+            return render_template("coursePage.html", courseName = "Ece216", Courses = COURSES)
+            #courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse
     return "NOT A VALID COURSE"
  
 @app.route("/rate/<curCourse>/<assType>/<assNum>/<rating>",  methods=["POST", "GET"])
