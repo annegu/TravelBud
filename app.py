@@ -21,10 +21,8 @@ def signin():
     if form.validate_on_submit():
         for user in users:
             if form.email.data in user["email"] and form.password.data == user["password"]:
-                 return render_template("coursePage.html", courseName = "You're Sign IN!!",Courses = COURSES)               
-
+                 return redirect("/")
     return render_template("login.html", form = form)
-
 
 
 @app.route("/signup", methods=["POST", "GET"])
@@ -34,7 +32,7 @@ def signup():
         new_user = {"id": len(users)+1, "full_name": form.full_name.data, "email": form.email.data, "password": form.password.data}
         users.append(new_user)
         print(new_user)
-        return render_template("coursePage.html", message = "Successfully signed up") # go back to homepage after successful sign in... but why does url still say sign up doe
+        return redirect("/") # go back to homepage after successful sign in... but why does url still say sign up doe
     return render_template("signup.html", form = form)
 
 @app.route("/newCourse", methods=["POST", "GET"])
@@ -50,7 +48,7 @@ def newCourse():
         COURSES.append(form.courseCode.data)
         COURSE_OBJS[0].createLabsList()
         
-        return render_template("coursePage.html", message = "Successfully added new course")
+        return redirect("coursePage.html", message = "Successfully added new course")
     return render_template("newCourse.html", form = form)  
 
 
@@ -62,7 +60,7 @@ def findCourse():
         #find the course
         for cCode in COURSES:
             if cCode == form.courseCode.data:
-                return render_template("coursePage.html", courseName = cCode)
+                return redirect("/course/" + cCode)
         
         return render_template("newCourse.html") # don't think there's anything else I need to pass...?
 

@@ -16,10 +16,6 @@ class Assignment:
   def updateNumDone(self):
     self.numDone += 1
 
-    
-
-
-
 
 class Student: 
   def __init__(self):
