@@ -42,14 +42,19 @@ def signup():
 def newCourse():
     form = f.addNewCourse()
     if form.validate_on_submit():
-        
-        COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, int(form.numLectures.data), form.numPS.data))
+        #
+        # form.courseCode.data
+        #form.numLabs.data
+        # form.numPS.data
+        #form.numLectures.data
+        COURSE_OBJS.append(db.Course(form.courseCode.data, form.numLabs.data, form.numLectures.data, form.numPS.data))
         COURSES.append(form.courseCode.data)
         
         for courseObj in COURSE_OBJS:
             if form.courseCode.data == courseObj.courseCode:
                 courseObj.createLabsList()
                 courseObj.createPSetsList()
+                courseObj.createLecturesList()
         
         return redirect("/course/" + form.courseCode.data)
         # return redirect("/")
@@ -78,8 +83,9 @@ def changePage(curCourse):
         if curCourse == course.courseCode:
             labs = course.labs
             assignments = course.problemSets
+            lectures = course.lectures
             sendCourse = course
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Course = sendCourse)
+            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse)
  
     return "NOT A VALID COURSE"
  
@@ -102,7 +108,7 @@ def rate(curCourse,assType,assNum,rating):
             else: pass
 
     return redirect("/course/" + curCourse)
-    
+
 if __name__ == "__main__":
     app.run()
  
