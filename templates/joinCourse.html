@@ -1,26 +1,35 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Join Course Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css" />
+</head>
+<!-- Top Nav Bar -->
+<nav class = "navbar sticky-top navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Progress Tracker</a>
+        </div>
+    </div>
+  </nav>
 
-{% block title %}
-Sign-Up 
-{% endblock %}
+  <div class="join-title">
+    <h1>Join a Course</h1>
+  </div>
 
-{% block heading %}
-Sign Up
-{% endblock %}
-
-{% block content %}
-{% if form %}
-<form action="{{url_for('findCourse')}}" method="POST" style="padding:5px;">
-    <!-- Email Field -->
-    {{ form.courseCode.label }}: <br>
-    {{ form.courseCode }} 
-    <br>
-
-     <!-- Hidden CSRF Token Field -->
-    {{ form.csrf_token }}
-    <br>
-     <!-- Submit Field -->
-    {{ form.submit }}
-</form> 
-{% endif %}
-{% endblock %}
+    <div class="signin">
+        {% if form %}
+        <form action="{{url_for('findCourse')}}" method="POST">
+            <div class="form-group" >
+                <label for="exampleInputEmail1">Course Code</label>
+                <br>
+                {{ form.courseCode }}
+            </div>
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        {% endif %}
+    </div>
+</body>
