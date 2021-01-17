@@ -69,6 +69,14 @@
     <div class="main">
         <div class="container-fluid">
             <h1 class="page-title">{{courseName}}</h1>
+
+            <!-- Welcome page text -->
+            {% if blank %}
+            <br>
+            <p class="welcome-text">To begin, click on a course from the side menu!</p>
+            <p class="welcome-text">No added courses yet? <a href="/findCourse">Join a course</a> or <a href="/newCourse">create a course</a> to get started!</p>
+            {% endif %}
+
             <!-- Assignments -->
             {% if Assignments %}
             <a id="assignments"><h2 class="category-title">Assignments</h2></a>
