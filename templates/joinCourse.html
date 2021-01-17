@@ -6,6 +6,36 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="static/style.css" />
 </head>
+  <!-- Side Nav Bar -->
+  <nav class = "navbar-fixed-left">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"></a>
+        </div>
+    <h3 class= "sidebar-title">Courses</h3>
+    <ul class="nav navbar-nav">
+
+        {%for c in Courses %}
+
+        {% if courseName == c %}<li class="nav-item active">{%endif%}
+        {% if courseName == c %}<li class="nav-item">{%endif%}
+            <a class="nav-link" href="{{url_for('changePage', curCourse = c )}}">{{c}}</a>
+        </li>
+        {% endfor %}
+
+        <hr>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/findCourse">Join a Course</a>
+        </li> 
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="/newCourse">Add a Course</a>
+        </li>
+
+     </ul>   
+    </div>
+</nav>
 <!-- Top Nav Bar -->
 <nav class = "navbar sticky-top navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
