@@ -8,6 +8,7 @@ users =[]
 COURSES = ["ece216","ece221","ece231","ece243","ece216","ece221","ece231","ece243"]
 COURSE_OBJS = []
 stud = db.Student()
+studData = db.StudentCourseData()
  
 @app.route("/")
 def homepage():
@@ -90,12 +91,18 @@ def rate(curCourse,assType,assNum,rating):
  
     for course in COURSE_OBJS:
         if curCourse == course.courseCode:
-            pass
- 
- 
- 
-    return redirect("/")
- 
+            if assType == "Lab":
+                studData.addLab(rating)
+                stud.addCourse(curCourse, studData)
+
+            elif assType == "Ass":
+                studData.addPS(rating)
+                stud.addCourse(curCourse, studData)
+            
+            else: pass
+
+    return redirect("/course/" + curCourse)
+    
 if __name__ == "__main__":
     app.run()
  
