@@ -52,37 +52,37 @@
                 <!-- Course name Field -->
                 <div class="row">
                     <label for="courseNameInput" class="form-label">Course name</label>
-                    </br>
+                    <br>
                     {{ form.courseCode }} 
                 </div>
-                </br>
+                <br>
 
                 <div class="row">
                     <div class="col">
                         <div class="row">
                             <!-- Input number of labs -->
                             <label for="numLabsSelect" class="form-label">Number of labs</label>
-                            </br>
+                            <br>
                             {{ form.numLabs }}
                         </div>
                     </div>  
-                    </br>
+                    <br>
                     
                     <div class="col">
                         <div class="row">
                             <!-- Input number of assignments -->
                             <label for="numAsgnSelect" class="form-label">Number of assignments</label>
-                            </br>
+                            <br>
                             {{ form.numPS }}
                         </div>
                     </div>
-                    </br>
+                    <br>
 
                     <div class="col">
                         <div class="row">
                             <!-- Input number of lectures-->
                             <label for="numLecsSelect" class="form-label">Number of lectures</label>
-                            </br>
+                            <br>
                             {{ form.numLectures }}
                         </div>
                     </div>
@@ -90,7 +90,7 @@
 
                 <!-- Hidden CSRF Token Field -->
                 {{ form.csrf_token }}
-                </br>
+                <br>
                 <!-- Submit Field -->
                 {{ form.submit }}
             </form>
