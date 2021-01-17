@@ -17,8 +17,8 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#"></a>
             </div>
-        <h3>Courses</h3>
-        <ul class="nav navbar-nav">
+            <h3>Courses</h3>
+            <ul class="nav navbar-nav">
 
 
             {%for c in Courses %}
@@ -37,7 +37,6 @@
          </ul>   
         </div>
     </nav>
-    <h1 id="title">  </h1>
 
     <div id="content">
         <!-- Top Nav Bar -->
@@ -66,6 +65,7 @@
         <div class="container-fluid">
             <h1 class="page-title">{{courseName}}</h1>
             <!-- Assignments -->
+            {% if Assignments %}
             <a id="assignments"><h2 class="category-title">Assignments</h2></a>
             <table class="table">
                 <thead>
@@ -77,7 +77,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% if Assignments %}
                     {%for a in Assignments %}
                     <tr>
                         <th scope="row">{{a.name}}</th>
@@ -101,12 +100,13 @@
                         </td>
                     </tr>
                     {%endfor%}
-                    {%endif%}
                 </tbody>
-            </table>      
+            </table>     
+            {%endif%} 
 
             <br>
             <!-- Labs -->
+            {% if Labs %}
             <a id="labs"><h2 class="category-title">Labs</h2></a>
             <table class="table">
                 <thead>
@@ -118,7 +118,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% if Labs %}
                     {%for l in Labs %}
                     <tr>
                         <th scope="row">{{l.name}}</th>
@@ -142,12 +141,13 @@
                         </td>
                     </tr>
                     {%endfor%}
-                    {%endif%}
                 </tbody>
             </table>
+            {%endif%}
             <br>
 
             <!-- Lectures -->
+            {% if Lectures%}
             <a id="lectures"><h2 class="category-title">Lectures</h2></a>
             <table class="table">
                 <thead>
@@ -159,7 +159,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% if Lectures%}
                     {%for i in Lectures%}
                     <tr>
                         <th scope="row">{{i.name}}</th>
@@ -183,9 +182,9 @@
                         </td>
                     </tr>
                     {%endfor%}
-                    {%endif%}
                 </tbody>
             </table>
+            {%endif%}
         </div>
     </div>
 </body>

@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
  
 users =[]
-COURSES = ["ece216","ece221","ece231","ece243","ece216","ece221","ece231","ece243"]
+COURSES = []
 COURSE_OBJS = []
 stud = db.Student()
 studData = db.StudentCourseData()
@@ -14,7 +14,7 @@ studData = db.StudentCourseData()
 def homepage():
     """View function for Home Page."""
  
-    return render_template("coursePage.html", courseName = "Ece216", Courses = COURSES)
+    return render_template("coursePage.html", Courses = COURSES)
  
 @app.route("/signin", methods=["POST", "GET"])
 def signin():
@@ -84,8 +84,7 @@ def changePage(curCourse):
             labs = course.labs
             assignments = course.problemSets
             lectures = course.lectures
-            sendCourse = course
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse)
+            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures)
  
     return "NOT A VALID COURSE"
  
