@@ -43,7 +43,7 @@ class StudentCourseData:
 
   def addLec(self, rating):
     lecNum = len(self.lecsCompleted)
-    self.lecsComlpeted.append((lecNum + 1, rating))
+    self.lecsCompleted.append((lecNum + 1, rating))
 
 
 
