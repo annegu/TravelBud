@@ -83,7 +83,7 @@
             {% if Assignments %}
               {%for a in Assignments %}
             <tr>
-              <th scope="row">a.name</th>
+              <th scope="row">{{a.name}}</th>
               <td>
                   <div class="progress">
                       <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
@@ -126,7 +126,7 @@
             {% if Labs %}
             {%for l in Labs %}
             <tr>
-              <th scope="row">l.name</th>
+              <th scope="row">{{l.name}}</th>
               <td>
                   <div class="progress">
                       <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
