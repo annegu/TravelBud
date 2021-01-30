@@ -20,7 +20,7 @@
             <h3 class= "sidebar-title">Courses</h3>
             <ul class="nav navbar-nav">
 
-
+            <!--List of courses-->
             {%for c in Courses %}
 
             {% if courseName == c %}<li class="nav-item active">{%endif%}
@@ -111,6 +111,9 @@
                                   <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 2 )}}">Easy</a>
                                   <a class="dropdown-item" href="{{url_for('rate', curCourse = courseName , assType = 'ass', assNum = loop.index0, rating = 1 )}}">Very Easy</a>
                               </div>
+                          {%endif%}
+                          {% if loop.index0 in studAss %}
+                                {{rAss[loop.index0]}}
                               {%endif%}
                         </td>
                     </tr>

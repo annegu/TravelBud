@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Email, EqualTo
 
+#Signup Form
 class SignUpForm(FlaskForm):
     full_name = StringField('Full Name', validators = [InputRequired()])
     email = StringField('Email',

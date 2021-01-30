@@ -17,6 +17,7 @@ class Assignment:
     self.numDone += 1
 
 
+#Student Class
 class Student: 
   def __init__(self):
     self.courses = []
@@ -38,8 +39,8 @@ class StudentCourseData:
     self.labsCompleted.append((labNum, rating))
       
   def addPS(self, rating):
-    PSnum = len(self.PScompleted)
-    self.PScompleted.append((PSnum , rating))
+    PSnum = len(self.PSCompleted)
+    self.PSCompleted.append((PSnum , rating))
 
   def addLec(self, rating):
     lecNum = len(self.lecsCompleted)

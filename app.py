@@ -14,6 +14,7 @@ ran = []
 for i in range(10000):
     ran.append(random.randint(0,100)) 
  
+#Homepage show login info
 @app.route("/")
 def homepage():
     """View function for Home Page."""
@@ -111,12 +112,12 @@ def rate(curCourse,assType,assNum,rating):
     
     for course in COURSE_OBJS:
         if curCourse == course.courseCode:
-            if assType == "Lab":
+            if assType == "lab":
                 studData.addLab(rating)
                 stud.addCourse(curCourse, studData)
                 return redirect("/course/" + curCourse)
 
-            elif assType == "Ass":
+            elif assType == "ass":
                 studData.addPS(rating)
                 stud.addCourse(curCourse, studData)
                 return redirect("/course/" + curCourse)
