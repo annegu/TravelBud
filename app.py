@@ -6,20 +6,22 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
  
 users =[]
+
+logged_in_user = -1
+
 COURSES = []
 COURSE_OBJS = []
 stud = db.Student()
 studData = db.StudentCourseData()
-ran = []
-for i in range(10000):
-    ran.append(random.randint(0,100)) 
  
 #Homepage show login info
 @app.route("/")
 def homepage():
     """View function for Home Page."""
- 
-    return render_template("coursePage.html",courseName = "Welcome", Courses = COURSES, blank = 1)
+    if(logged_in_user == -1):
+        return redirect("/signin")
+
+    return render_template("coursePage.html",courseName = "Welcome", Courses = COURSES, blank = 1, curUser = users[logged_in_user])
  
 @app.route("/signin", methods=["POST", "GET"])
 def signin():
@@ -37,9 +39,12 @@ def signin():
 def signup():
     form = f.SignUpForm()
     if form.validate_on_submit():
-        new_user = {"id": len(users)+1, "full_name": form.full_name.data, "email": form.email.data, "password": form.password.data}
+        new_user = {"id": len(users), "full_name": form.full_name.data, "email": form.email.data, "password": form.password.data}
         users.append(new_user)
         print(new_user)
+        global logged_in_user
+        logged_in_user = new_user["id"]
+        print("new user is ", logged_in_user)
         return redirect("/")
     return render_template("signup.html", form = form)
  
@@ -47,7 +52,6 @@ def signup():
 def newCourse():
     form = f.addNewCourse()
     if form.validate_on_submit():
-        #
         # form.courseCode.data
         #form.numLabs.data
         # form.numPS.data
@@ -67,65 +71,65 @@ def newCourse():
  
  
 #User looks for courses to 'enroll' if not created prompts user to create the class
-@app.route("/findCourse", methods=["POST", "GET"])
-def findCourse():
-    form = f.findCourse()
-    if form.validate_on_submit():
-        #find the course
-        for cCode in COURSES:
-            if cCode == form.courseCode.data:
-                return redirect("/course/" + form.courseCode.data)
+# @app.route("/findCourse", methods=["POST", "GET"])
+# def findCourse():
+#     form = f.findCourse()
+#     if form.validate_on_submit():
+#         #find the course
+#         for cCode in COURSES:
+#             if cCode == form.courseCode.data:
+#                 return redirect("/course/" + form.courseCode.data)
         
-        return redirect("/newCourse")
+#         return redirect("/newCourse")
  
-    return render_template("joinCourse.html", form = form,Courses = COURSES)
+#     return render_template("joinCourse.html", form = form,Courses = COURSES)
  
  
-@app.route("/course/<curCourse>",  methods=["POST", "GET"])
-def changePage(curCourse):
-    print()
-    for course in COURSE_OBJS:
-        if curCourse == course.courseCode:
-            labs = course.labs
-            assignments = course.problemSets
-            lectures = course.lectures
-            sendCourse = course
-            studass = [x for x,y in studData.PSCompleted]
-            studlec =  [x for x,y in studData.lecsCompleted]
-            studlab= [x for x,y in studData.labsCompleted]
-            rlab = [y for x,y in studData.labsCompleted]
-            rlec = [y for x,y in studData.lecsCompleted] 
-            rass =[y for x,y in studData.PSCompleted]                
+# @app.route("/course/<curCourse>",  methods=["POST", "GET"])
+# def changePage(curCourse):
+#     print()
+#     for course in COURSE_OBJS:
+#         if curCourse == course.courseCode:
+#             labs = course.labs
+#             assignments = course.problemSets
+#             lectures = course.lectures
+#             sendCourse = course
+#             studass = [x for x,y in studData.PSCompleted]
+#             studlec =  [x for x,y in studData.lecsCompleted]
+#             studlab= [x for x,y in studData.labsCompleted]
+#             rlab = [y for x,y in studData.labsCompleted]
+#             rlec = [y for x,y in studData.lecsCompleted] 
+#             rass =[y for x,y in studData.PSCompleted]                
 
-            return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
-                Student = stud, studLab = studlab,studAss = studass,studLec = studlec, 
-                rLab = rlab, rLec = rlec, rAss = rass, ran = ran[int(curCourse[3:]):])
+#             return render_template("coursePage.html", courseName = curCourse, Courses = COURSES, Labs = labs, Assignments = assignments, Lectures = lectures, Course = sendCourse,
+#                 Student = stud, studLab = studlab,studAss = studass,studLec = studlec, 
+#                 rLab = rlab, rLec = rlec, rAss = rass, ran = ran[int(curCourse[3:]):])
  
-    return "NOT A VALID COURSE"
+#     return "NOT A VALID COURSE"
  
-@app.route("/rate/<curCourse>/<assType>/<assNum>/<rating>",  methods=["POST", "GET"])
-def rate(curCourse,assType,assNum,rating):  
-    #COURSES.append("IT WORKEDDDD LETS GOOO")
-    #mark assignment as complete
-    #Update rating
+# @app.route("/rate/<curCourse>/<assType>/<assNum>/<rating>",  methods=["POST", "GET"])
+# def rate(curCourse,assType,assNum,rating):  
+#     #COURSES.append("IT WORKEDDDD LETS GOOO")
+#     #mark assignment as complete
+#     #Update rating
     
     
-    for course in COURSE_OBJS:
-        if curCourse == course.courseCode:
-            if assType == "lab":
-                studData.addLab(rating)
-                stud.addCourse(curCourse, studData)
-                return redirect("/course/" + curCourse)
+#     for course in COURSE_OBJS:
+#         if curCourse == course.courseCode:
+#             if assType == "lab":
+#                 studData.addLab(rating)
+#                 stud.addCourse(curCourse, studData)
+#                 return redirect("/course/" + curCourse)
 
-            elif assType == "ass":
-                studData.addPS(rating)
-                stud.addCourse(curCourse, studData)
-                return redirect("/course/" + curCourse)
+#             elif assType == "ass":
+#                 studData.addPS(rating)
+#                 stud.addCourse(curCourse, studData)
+#                 return redirect("/course/" + curCourse)
             
-            else: 
-                studData.addLec(rating)
-                stud.addCourse(curCourse, studData)
-                return redirect("/course/" + curCourse)
+#             else: 
+#                 studData.addLec(rating)
+#                 stud.addCourse(curCourse, studData)
+#                 return redirect("/course/" + curCourse)
 
     # return redirect("/course/" + curCourse)
     # return render_template("coursePage.html", Student = stud, StudentData = studData)
