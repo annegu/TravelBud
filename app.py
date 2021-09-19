@@ -45,8 +45,27 @@ def signup():
         global logged_in_user
         logged_in_user = new_user["id"]
         print("new user is ", logged_in_user)
-        return redirect("/")
+
+        # NEW CHANGE
+        # return redirect("/")
+        return redirect("/phoneAuthentication")
     return render_template("signup.html", form = form)
+
+# NEW CHANGE
+@app.route("/phoneAuthentication", methods=["POST", "GET"])
+def phoneAuthentication():
+    form=f.phoneAuthenticationForm()
+    if form.validate_on_submit():
+        return redirect("/verify")
+    return render_template("phoneAuthentication.html", form = form)
+
+# NEW CHANGE
+@app.route("/verify", methods=["POST", "GET"])
+def verify():
+    form=f.verify()
+    if form.validate_on_submit():
+        return redirect("/")
+    return render_template("verify.html", form=form)
  
 @app.route("/newCourse", methods=["POST", "GET"])
 def newCourse():
