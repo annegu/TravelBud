@@ -21,13 +21,13 @@ def homepage():
     if(logged_in_user == -1):
         return redirect("/signin")
 
-    return render_template("coursePage.html",courseName = "Welcome", Courses = COURSES, blank = 1, curUser = users[logged_in_user])
+    return render_template("homePage.html",courseName = "Welcome", Courses = COURSES, blank = 1, curUser = users[logged_in_user])
  
 @app.route("/signin", methods=["POST", "GET"])
 def signin():
     form = f.LoginForm()
     if form.validate_on_submit():
-        for user in users:
+        for user in users: 
             if form.email.data in user["email"] and form.password.data == user["password"]:
                  return redirect("/")               
  

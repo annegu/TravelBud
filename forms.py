@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
+from wtforms.fields.core import IntegerField
 from wtforms.validators import InputRequired, Email, EqualTo
 
 #Signup Form
@@ -10,6 +11,7 @@ class SignUpForm(FlaskForm):
     password = PasswordField('Password', validators = [InputRequired()])
     confirm_password = PasswordField('Confirm Password',
                                      validators = [InputRequired(), EqualTo('password')])
+    age = IntegerField("Age")
     submit = SubmitField('Sign Up')
 
 class addNewCourse(FlaskForm):
