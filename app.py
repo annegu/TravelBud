@@ -2,6 +2,10 @@ import random
 from flask import Flask, render_template,abort,redirect
 import forms as f
 import db
+import send_sms
+import tkinter
+from tkinter import messagebox
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
  
@@ -56,6 +60,7 @@ def signup():
 def phoneAuthentication():
     form=f.phoneAuthenticationForm()
     if form.validate_on_submit():
+        send_sms.send_message("+1" + str(form.phoneNumber.data))
         return redirect("/verify")
     return render_template("phoneAuthentication.html", form = form)
 
@@ -64,7 +69,12 @@ def phoneAuthentication():
 def verify():
     form=f.verify()
     if form.validate_on_submit():
-        return redirect("/")
+        if form.verificationCode.data == send_sms.verificationCode:
+            return redirect("/")
+        else:
+            root = tkinter.Tk()
+            root.withdraw()
+            messagebox.showinfo("Error", "The Verification Code is incorrect")
     return render_template("verify.html", form=form)
  
 @app.route("/newCourse", methods=["POST", "GET"])

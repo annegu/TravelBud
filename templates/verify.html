@@ -16,11 +16,11 @@
     </div>
   </nav>
 
-  <div class="verifyTitle">
-    <h1>Verify</h1>
+  <div class="sign-up-title">
+    <h1>Verify Your Phone Number</h1>
   </div>
 
-  <div class="verify">
+  <div class="sign-up">
     {% if form %}
     <form action="{{url_for('verify')}}" method="POST">
         <div class="form-group" >
@@ -34,7 +34,7 @@
     </form>
     {% endif %}
   </div>
-  <div class="resendSMS">    
+  <div class="signup-login-link">    
     Did not receive text message? <a href="/phoneAuthentication">Resend Code (This link does nothing currently)</a>
   </div>
 </body>
